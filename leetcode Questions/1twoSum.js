@@ -31,4 +31,22 @@ const twoSum = (nums, target) => {
   }
 };
 
+// 2. Second Approach withn O(n) Time Complexity using Map
+const twoSumMap = (nums, target) => {
+  let numbersMap = new Map();
+  for (let i = 0; i < nums.length; i++) {
+    if (numbersMap.has(target - nums[i])) {
+      return [numbersMap.get(target - nums[i]), i];
+    } else {
+      numbersMap.set(nums[i], i);
+    }
+  }
+  return null;
+};
+
 console.log(twoSum([2, 7, 11, 15], 9));
+// [0,1]
+console.log(twoSum([3, 4, 2], 6));
+// [1,2]
+console.log(twoSumMap([2, 7, 11, 15], 9));
+// [0,1]
